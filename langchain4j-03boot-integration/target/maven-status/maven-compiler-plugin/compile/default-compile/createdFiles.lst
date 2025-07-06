@@ -1,0 +1,4 @@
+com\phoenixhell\study\service\ChatAssistant.class
+com\phoenixhell\study\BootIntegrationLangChain4JApp.class
+com\phoenixhell\study\controller\DeclarativeAIServiceController.class
+com\phoenixhell\study\controller\PopularIntegrationController.class
