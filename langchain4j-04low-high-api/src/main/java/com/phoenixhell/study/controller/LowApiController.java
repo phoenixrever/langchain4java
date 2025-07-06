@@ -1,7 +1,6 @@
 package com.phoenixhell.study.controller;
 
 import dev.langchain4j.data.message.ChatMessage;
-import dev.langchain4j.data.message.ChatMessageType;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.request.ChatRequest;
@@ -21,15 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 public class LowApiController {
-    @Resource(name = "qwen")
-    private ChatModel chatModelQwen;
+    @Resource(name = "gemini")
+    private ChatModel chatModelGemini;
 
-    @Resource(name = "deepseek")
-    private ChatModel chatModelDeepSeek;
+    @Resource(name = "openai")
+    private ChatModel chatModelOpenAI;
 
     @GetMapping(value = "/lowapi/api01")
     public String api01(@RequestParam(value = "prompt", defaultValue = "你是谁") String prompt) {
-        String result = chatModelQwen.chat(prompt);
+        String result = chatModelGemini.chat(prompt);
 
         System.out.println("通过langchain4j调用模型返回结果：" + result);
 
@@ -44,7 +43,7 @@ public class LowApiController {
      */
     @GetMapping(value = "/lowapi/api02")
     public String api02(@RequestParam(value = "prompt", defaultValue = "你是谁") String prompt) {
-        ChatResponse chatResponse = chatModelDeepSeek.chat(UserMessage.from(prompt));
+        ChatResponse chatResponse = chatModelOpenAI.chat(UserMessage.from(prompt));
 
         String result = chatResponse.aiMessage().text();
         System.out.println("通过调用大模型返回结果：" + result);
