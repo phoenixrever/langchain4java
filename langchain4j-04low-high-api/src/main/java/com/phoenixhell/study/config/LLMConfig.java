@@ -49,13 +49,13 @@ public class LLMConfig {
                 .modelName("gemini-2.5-flash").build();
     }
 
+    //不像gemini 不是openai协议 需要单独的pom  这个就足够 langchain4j-open-ai 基础
     @Bean(name = "openai")
     public ChatModel chatModelOpenAI() {
         return
                 OpenAiChatModel.builder()
                         .apiKey("demo")
                         .modelName("gpt-4o-mini")
-                        //.modelName("deepseek-reasoner")
                         .baseUrl("http://langchain4j.dev/demo/openai/v1")
                         .build();
     }

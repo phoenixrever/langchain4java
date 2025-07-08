@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
  * @auther チヨウ　カツヒ
  * @Date 2025-05-27 22:04
  * @Description: 知识出处 https://docs.langchain4j.dev/get-started
+ *
+ * 这个代码跑不通 只是演示国内模型，后面工程 openapi 和gemini 可以跑通
  */
 @Configuration
 public class LLMConfig {

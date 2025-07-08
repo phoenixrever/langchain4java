@@ -19,12 +19,12 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class ModelParameterController {
     @Resource
-    private ChatModel chatModelQwen;
+    private ChatModel chatModelOpenAI;
 
     // http://localhost:9005/modelparam/config
     @GetMapping(value = "/modelparam/config")
     public String config(@RequestParam(value = "prompt", defaultValue = "你是谁") String prompt) {
-        String result = chatModelQwen.chat(prompt);
+        String result = chatModelOpenAI.chat(prompt);
 
         System.out.println("通过langchain4j调用模型返回结果：" + result);
 
